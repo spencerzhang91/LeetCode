@@ -1,3 +1,4 @@
+# I omited the class defination on purpose because it's just not necessary at all.
 def isvalid(s):
     stack, D = [], {')': '(', ']': '[', '}': '{'}
     for i in range(len(s)):
