@@ -1,23 +1,16 @@
 class Solution:
     def countPrimes(self, n):
-        n += 1
-        boolist = [True for i in range(2,n)]
-        i, m = 2, 0
-        
-        print(i,m)
+        if n <2: return 0
+        i = 2
+        boolist = [True] * n
+        boolist[0] = False
+        boolist[1] = False
         while i <= n ** 0.5:
-            print('cc')
             if boolist[i]:
-                print('bb')
-            
-                while i ** 2 + m * i < n:
-                    print('aa')
-                    j = i ** 2 + m * i
-                    boolist[j] = False
-                    m += 1
+                j = i
+                while i *j < n:
+                    boolist[i*j] = False
+                    j += 1
             i += 1
-        return boolist
+        return sum(boolist)
 
-
-test = Solution()
-print(test.countPrimes(10))
