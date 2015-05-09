@@ -38,3 +38,5 @@ if __name__ == '__main__':
     test = Solution()
     a = test.isSameTree(p,q)
     print(a)
+    q = Treenode(1)
+    print(q)
