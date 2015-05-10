@@ -12,6 +12,7 @@ class Solution:
             
 
 if __name__ == "__main__":
+    
     test = Solution()
     a = test.twoSum([1,2,3,11,22,33], 44)
     print(a)
