@@ -7,7 +7,7 @@ class Solution:
         m = len(nums) - 1
         while m > 0:
             if nums[m] == nums[m-1]:
-                nums.pop(m)
+                nums.remove(nums[m])
             m -= 1
         return len(nums)
 
