@@ -2,7 +2,7 @@ from time import time
 
 class Solution:
     def countPrimes(self, N):
-        count = 1
+        count = 0
         for num in range(2,N):
             if self.isPrime(num):
                 count += 1
@@ -10,17 +10,17 @@ class Solution:
 
     def isPrime(self, num):
         par = num // 2
-        res = None
+        res = True
         while par > 1:
             if num % par == 0:
                 res = False
                 break
             par -= 1
         else:
-            return True
+            return res
 
 test = Solution()
 t1 = time()
-print(test.countPrimes(15000))
+print(test.countPrimes(10))
 t2 = time()
 print(t2 - t1)
