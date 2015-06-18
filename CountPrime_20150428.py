@@ -1,3 +1,5 @@
+from time import time
+
 class Solution:
     def countPrimes(self, n):
         if n <2: return 0
@@ -14,3 +16,8 @@ class Solution:
             i += 1
         return sum(boolist)
 
+test = Solution()
+t1 = time()
+print(test.countPrimes(15000))
+t2 = time()
+print(t2 - t1)

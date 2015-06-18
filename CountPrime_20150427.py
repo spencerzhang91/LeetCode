@@ -1,7 +1,7 @@
-# The easiest way to coue up with though also the slowest way to solve prime number problem.
+from time import time
 
 class Solution:
-    def countPrime(self, N):
+    def countPrimes(self, N):
         count = 1
         for num in range(2,N):
             if self.isPrime(num):
@@ -20,5 +20,7 @@ class Solution:
             return True
 
 test = Solution()
-print(test.countPrime(100000))
-            
+t1 = time()
+print(test.countPrimes(15000))
+t2 = time()
+print(t2 - t1)
