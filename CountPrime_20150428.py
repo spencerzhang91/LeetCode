@@ -18,6 +18,6 @@ class Solution:
 
 test = Solution()
 t1 = time()
-print(test.countPrimes(999))
+print(test.countPrimes(100))
 t2 = time()
 print(t2 - t1)

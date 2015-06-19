@@ -10,17 +10,15 @@ class Solution:
 
     def isPrime(self, num):
         par = num // 2
-        res = True
         while par > 1:
             if num % par == 0:
-                res = False
-                break
+                return False
             par -= 1
         else:
-            return res
+            return True
 
 test = Solution()
 t1 = time()
-print(test.countPrimes(10))
+print(test.countPrimes(100))
 t2 = time()
 print(t2 - t1)
