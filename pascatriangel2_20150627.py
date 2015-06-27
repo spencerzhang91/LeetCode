@@ -1,13 +1,15 @@
 class Solution:
     # @param {integer} numRows
     # @return {integer[][]}
-    def generate(self, numRows):
+    def getRow(self, rowIndex):
+        numRows = rowIndex + 1
         if numRows == 0:
-            res = []
+            res = [1]
         elif numRows == 1:
             res = [[1]]
         else:
             res = [[1],[1,1]]
+            numRows += 1
             while numRows > 2:
                 cur = []
                 last = res[-1]
@@ -17,9 +19,10 @@ class Solution:
                 cur.append(1)
                 res.append(cur)
                 numRows -= 1            
-        return res[numRows+1]
+        return res[rowIndex]
 
 if __name__ == '__main__':
     test = Solution()
-    print(test.generate(5))
+    print(test.getRow(0))
     
+# a minor amendment from pascatriangle1
