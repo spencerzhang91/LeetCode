@@ -3,9 +3,9 @@ class Solution:
         if not head:
             return None
         if not head.next:
-            return None
+            return head
         temp = head.next
-        new_head = reveseList(temp)
+        new_head = self.reveseList(temp)
         head.next = None
         temp.next = head
         return new_head
