@@ -13,19 +13,14 @@ class Solution:
             stop = nums[0]
             for i in range(1, len(nums)):
                 if nums[i] - nums[i-1] > 1:
-
                     stop = nums[i-1]
-
                     if start < stop:
                         res.append("%d->%d" % (start, stop))
                     else:
                         res.append("%d" % stop)
                     start = nums[i]
-                    continue
-
                 else:
                     stop = nums[i]
-                    continue
             if start < stop:
                 res.append("%d->%d" % (start, stop))
             else:
