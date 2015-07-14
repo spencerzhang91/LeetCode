@@ -1,29 +1,25 @@
 # 19 original approach
 # Solution class
 class Solution:
-    # @param {ListNode} head
-    # @param {integer} n
-    # @return {ListNode}
     def removeNthFromEnd(self, head, n):
         if not head:
-            return head
-        if not head.next:
             return None
-        pointer = head
-        node = head
-        prev = head
+        if not head.next:
+            return None        
+        pointer = node = prev = head        
         for i in range(1, n):
-            pointer = pointer.next
+            pointer = pointer.next            
         if not pointer.next:
-            head = head.next
+            head = head.next            
         else:
             pointer = pointer.next
             node = node.next
-            prev.next = node
+            prev.next = node            
             while pointer.next:
                 pointer = pointer.next
                 node = node.next
-                prev = prev.next
+                prev = prev.next                
             prev.next = node.next
-            node.next = None   
+            node.next = None            
         return head
+
