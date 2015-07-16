@@ -4,14 +4,14 @@ class Solution:
 # @return a float
 def myPow(self, x, n):
     if n==0:
-        return 1;
+        return 1
     elif n==1:
-        return x;
+        return x
     elif n<0:
-        return self.myPow(1/x,-n);
+        return self.myPow(1/x,-n)
     else:
         if n%2==0:
-            return self.myPow(x*x,n/2);
+            return self.myPow(x*x,n/2)
         else:
             return self.myPow(x*x,(n-1)/2)*x
         
