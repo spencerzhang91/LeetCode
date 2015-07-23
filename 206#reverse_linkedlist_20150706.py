@@ -7,6 +7,7 @@ class ListNode:
     def __repr__(self):
         return "[%s --> %s]" % (self.val, self.next)
 
+# approach iterative
 class Solution:
     # @param {ListNode} head
     # @return {ListNode}
@@ -19,15 +20,16 @@ class Solution:
             new_head = temp
         return new_head
 
-# test code
-if __name__ == '__main__':
-    
-    n0 = ListNode('a')
-    n1 = ListNode('b')
-    n2 = ListNode('c')
-    n3 = ListNode('d')
 
-    n0.next = n1; n1.next = n2; n2.next = n3
-    
-    test = Solution()
-    print(test.reverseList(n0))
+# approach recursive
+class Solution:
+    def reverseList(self, head):
+        if not head:
+            return None
+        if not head.next:
+            return head
+        temp = head.next
+        new_head = self.reveseList(temp)
+        head.next = None
+        temp.next = head
+        return new_head

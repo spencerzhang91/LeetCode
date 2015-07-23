@@ -27,10 +27,28 @@ class Solution:
                 res.append("%d" % start)
         return res
         
-        
 
 
-if __name__ == '__main__':
-    test = Solution()
-    print(test.summaryRanges([0,1,2,4,5,7]))
+# approach recursive
+class Solution:
+    # @param {integer[]} nums
+    # @return {string[]}
+    def summaryRanges(self, nums):
+        def getRange(begin, end):
+            return str(begin)+"->" + str(end) if begin != end else str(begin)
+        n = len(nums)
+        if n==0:
+            return []
+        res = []
+        pre = start = nums[0]
+        for num in nums:
+            cur = num 
+            if cur - pre > 1:
+                res.append(getRange(start, pre))
+                start = cur
+            if cur == nums[-1]:
+                res.append(getRange(start, cur))
+            pre = cur
+        return res        
+
         

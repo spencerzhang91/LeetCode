@@ -1,62 +1,52 @@
 class MinStack:
-    # initialize your data structure here.
     def __init__(self):
-        self.value = []
-        self.min = []        
+        self.q = []
 
     # @param x, an integer
     # @return an integer
     def push(self, x):
-        # print('pushed', x)
-        if len(self.value) == 0:
-            self.value.append(x)
-            self.min.append(x)
-        else:
-            if x <= self.min[-1]:
-                self.min.append(x)
-            self.value.append(x)
-        return self.value[-1]     
-        
+        curMin = self.getMin()
+        if curMin == None or x < curMin:
+            curMin = x
+        self.q.append((x, curMin));
+
     # @return nothing
     def pop(self):
-        if len(self.value) > 0:
-            if self.value[len(self.value)-1] == self.min[len(self.min)-1]:
-                self.value.pop()
-                self.min.pop()
-            else:
-                self.value.pop()
+        self.q.pop()
 
     # @return an integer
     def top(self):
-        if self.value:
-            return self.value[-1]
-        return None       
+        if len(self.q) == 0:
+            return None
+        else:
+            return self.q[len(self.q) - 1][0]
 
     # @return an integer
     def getMin(self):
-        if self.min:
-            return self.min[-1]
-        return None
+        if len(self.q) == 0:
+            return None
+        else:
+            return self.q[len(self.q) - 1][1]
 
-    # a method for easy testing, omited when submit to OJ
     def show(self):
-        print('value:', self.value, ' min:', self.min)
+        print(self.q)
 
 if __name__ == '__main__':
     test = MinStack()
-    test.push(2147483646)
-    test.push(2147483646)
-    test.push(2147483647)
+    test.push(1)
+    test.push(2)
+    test.push(-2)
     test.show()
     test.pop()
     test.show()
     test.pop()
+    test.push(33)
+    test.show()
+    test.push(-22)
     test.show()
     test.pop()
     test.show()
-    test.push(2147483647)
-    test.show()
-    test.push(-2147483648)
+    test.pop()
     test.show()
     test.pop()
     test.show()
