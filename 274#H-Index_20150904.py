@@ -35,6 +35,18 @@ class Solution:
             i += 1
         return i
 
+# sorted in ascending order also simple:
+class Solution(object):
+    def hIndex(self, citations):
+        N = len(citations)
+        if N == 0 or sum(citations) == 0:
+            return 0
+        citations.sort()
+        i = 0
+        while N - i > citations[i]:
+            i += 1
+        return N - i
+
 # binary search approach: O(log n) time
 class Solution(object):
     def hIndex(self, citations):
