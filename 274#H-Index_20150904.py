@@ -1,3 +1,4 @@
+#274 H-Index
 class Solution(object):
     def hIndex(self, citations):
         """
@@ -22,6 +23,17 @@ class Solution(object):
             else:
                 break
         return h
+
+# a much cleverer approach if sort reversely (however 5-8 times slower):
+class Solution:
+    def hIndex(self, citations):
+        citations.sort(reverse=True)
+        i = 0
+        while i < len(citations) and citations[i] >= i+1:
+            print(citations[i],"->",i+1)
+            i += 1
+        return i
+    
 
 if __name__ == '__main__':
     c = [0,1,0]
