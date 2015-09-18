@@ -1,40 +1,4 @@
 /* 88 Merge Sorted Array */
-#include <stdio.h>
-#define M 10
-#define N 0
-
-void merge(int *nums1, int m, int *nums2, int n);
-int binary_search(int num, int *arr, int len);
-void insert_item(int num, int *arr, int len, int place);
-
-int main(void)
-{
-	int nums1[M*2] = {1,2,3,5,7,9,11,18,20,30};
-	int nums2[N] = {};
-	
-	printf("%d -> %d\n", 0, binary_search(0, nums1, M));
-	printf("%d -> %d\n", 1, binary_search(1, nums1, M));
-	printf("%d -> %d\n", 2, binary_search(2, nums1, M));
-	
-    printf("%d -> %d\n", 8, binary_search(8, nums1, M));
-	printf("%d -> %d\n", 9, binary_search(9, nums1, M));
-	printf("%d -> %d\n", 10, binary_search(10, nums1, M));
-	printf("%d -> %d\n", 11, binary_search(11, nums1, M));
-	printf("%d -> %d\n", 12, binary_search(12, nums1, M));
-	printf("%d -> %d\n", 16, binary_search(16, nums1, M));
-	printf("%d -> %d\n", 17, binary_search(17, nums1, M));
-	
-	printf("%d -> %d\n", 29, binary_search(29, nums1, M));
-	printf("%d -> %d\n", 30, binary_search(30, nums1, M));
-	printf("%d -> %d\n", 31, binary_search(31, nums1, M));
-	
-	merge(nums1, M, nums2, N);
-	
-	for (int i = 0; i < M*2; i++)
-		printf("%d ", nums1[i]);
-	
-	return 0;
-}
 
 void merge(int *nums1, int m, int *nums2, int n)
 {
