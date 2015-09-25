@@ -18,5 +18,5 @@ class Solution(object):
             else:
                 left = mid + 1
                 mid = (left + right) / 2
-        return right + 1
+        return left
             
