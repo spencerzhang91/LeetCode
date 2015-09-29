@@ -1,4 +1,4 @@
-// assume tha the array is already sorted acsendingly
+// assume that the array is already sorted acsendingly
 int missingNumber(int* nums, int numsSize)
 {
 	int mid;
@@ -17,4 +17,14 @@ int missingNumber(int* nums, int numsSize)
 }
 
 // not assuming sorted approach below:
-
+int missingNumber(int *nums, int numsSize)
+{
+    int temp = numsSize;
+    for (int i = 0; i < numsSize; i++)
+    {
+        temp ^= nums[i];
+        temp ^= i;
+    }
+    
+    return temp;
+}
