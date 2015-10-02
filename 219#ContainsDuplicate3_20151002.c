@@ -9,4 +9,4 @@ bool containsNearbyDuplicate(int *nums, int numsSize, int k)
 				return true;
 				
 	return false;
-}
+} 

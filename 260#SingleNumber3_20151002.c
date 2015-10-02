@@ -1,3 +1,4 @@
+/* #260 single number 3 */
 #include <stdio.h>
 #include <stdlib.h>
 #define N 8

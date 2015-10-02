@@ -1,3 +1,4 @@
+# 46 permutations
 class Solution:
     def permute(self, nums):
         """
@@ -21,11 +22,6 @@ class Solution:
                 self.helper(nums, i+1, n, res)
                 nums[i], nums[j] = nums[j], nums[i]
         return res
-
-if __name__ == '__main__':
-    test = Solution()
-    L = [1,2,3,4]
-    test.permute(L)
     
     
         
