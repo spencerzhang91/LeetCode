@@ -25,9 +25,9 @@ class Solution:
                     insert = temp
                 bound = temp
                 temp = temp.next
-            # 'bound.next is curr' at this point is implied
-            movenode = curr
-            curr = curr.next
+                                                  # 'bound.next is curr' at this point is implied
+            movenode = curr                       # explicit reference
+            curr = curr.next                      # 'bound.next is curr' at this point does not comply
             
             print('Ii:',insert, 'Ib:',bound, 'Im:',movenode, 'Ic:',curr, 'Ih:',head)
             print(bound.next is movenode)
@@ -35,15 +35,15 @@ class Solution:
             
             if head.val > movenode.val:           # corner case1: all sorted nodes's value greater than movenode
                 print('first reached')
-                bound.next = movenode.next         # make link: bound->curr
+                bound.next = movenode.next        # make link: bound->curr
                 movenode.next = head
                 head = movenode
             elif insert is bound:                 # corner case2: curr shall stay where it was
                 print('second reached')
                 bound.next = movenode
-            else:                                 # standard situiation: TO BE DONE!!!!!!!
+            else:                                 # standard situiation
                 print('third reached')
-                bound.next = movenode.next
+                bound.next = movenode.next        # make link: bound->curr
                 movenode.next = insert.next
                 insert.next = movenode
 
