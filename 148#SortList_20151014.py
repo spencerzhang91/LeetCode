@@ -43,6 +43,7 @@ class Solution:
                 bound.next = movenode
             else:                                 # standard situiation: TO BE DONE!!!!!!!
                 print('third reached')
+                bound.next = movenode.next
                 movenode.next = insert.next
                 insert.next = movenode
 
@@ -59,7 +60,7 @@ def traverse(head):
 
         
 if __name__ == "__main__":
-	node1 = ListNode(10)
+	node1 = ListNode(6)
 	node2 = ListNode(2)
 	node3 = ListNode(11)
 	node4 = ListNode(6)
