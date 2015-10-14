@@ -19,7 +19,6 @@ class Solution:
         insert, bound, movenode = None, None, None
         curr = head.next
         while curr:                               # while first of unsorted nodes is not None
-            print('Oi:',insert, 'Ob:',bound, 'Om:',movenode, 'Oc:',curr, 'Oh:',head)
             while temp != curr:                   # while last of sorted nodes doesn't overlap with curr
                 if temp.val <= curr.val:
                     insert = temp
@@ -27,22 +26,18 @@ class Solution:
                 temp = temp.next
                                                   # 'bound.next is curr' at this point is implied
             movenode = curr                       # explicit reference
-            curr = curr.next                      # 'bound.next is curr' at this point does not comply
-            
-            print('Ii:',insert, 'Ib:',bound, 'Im:',movenode, 'Ic:',curr, 'Ih:',head)
-            print(bound.next is movenode)
-            print(movenode.next is curr)
-            
+            curr = curr.next                      # 'bound.next is curr' now does not comply
+
             if head.val > movenode.val:           # corner case1: all sorted nodes's value greater than movenode
-                print('first reached')
+                                                  # print('first reached')
                 bound.next = movenode.next        # make link: bound->curr
                 movenode.next = head
                 head = movenode
             elif insert is bound:                 # corner case2: curr shall stay where it was
-                print('second reached')
+                                                  # print('second reached')
                 bound.next = movenode
             else:                                 # standard situiation
-                print('third reached')
+                                                  # print('third reached')
                 bound.next = movenode.next        # make link: bound->curr
                 movenode.next = insert.next
                 insert.next = movenode
