@@ -8,7 +8,6 @@ class ListNode(object):
     def __repr__(self):
         return str(self.val)
         
-
 class Solution:
     def sortList(self, head):
         """
@@ -65,5 +64,3 @@ if __name__ == "__main__":
 	# traverse(node1)
 	test = Solution()
 	test.sortList(node1)
-
-
