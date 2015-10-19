@@ -1,6 +1,6 @@
 # 148 SortList -- O(n^2) time complexity insertion sort approach
 # Definition for singly-linked list.
-class ListNode(object):
+class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
@@ -43,24 +43,54 @@ class Solution:
 
             temp = head                           # reset temp to head in next loop
             traverse(head)
-            print('\n','--'*20)
+            print('\n', '--'*20)
         return head
+
+
+# 148 SortList -- O(nlogn) time complexity merge sort approach
+# merge sort, recursively
+class Solution2:
+    '''
+    second solution 
+    '''
+    def sortList(self, head):
+        if not head or not head.next:
+            return head
+        # divide list into two parts
+        fast, slow = head.next, head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        second = slow.next
+        # cut down the first part
+        slow.next = None
+        l = self.sortList(head)
+        r = self.sortList(second)
+        return self.merge(l, r)
+
+    def merge(self, l, r):
+        if not l or not r:
+            return l or r
+        if l.val > r.val:
+            l, r = r, l
+        # get the return node "head"
+        head = pre = l
+        l = l.next
+        while l and r:
+            if l.val < r.val:
+                pre.next = l
+                l = l.next
+            else:
+                pre.next = r
+                r = r.next
+            pre = pre.next
+        # l and r at least one is None
+        pre.next = l or r
+        return head
+
 
 def traverse(head):
     curNode = head
     while curNode != None:
         print(curNode, end=' ')
         curNode = curNode.next
-
-        
-if __name__ == "__main__":
-	node1 = ListNode(6)
-	node2 = ListNode(2)
-	node3 = ListNode(11)
-	node4 = ListNode(6)
-	node5 = ListNode(7)
-	node1.next = node2; node2.next = node3
-	node3.next = node4; node4.next = node5
-	# traverse(node1)
-	test = Solution()
-	test.sortList(node1)
