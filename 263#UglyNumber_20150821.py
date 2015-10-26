@@ -26,7 +26,7 @@ class Solution:
         return array
 
 # second solution: much simpler and efficient
-class Solution:
+class Solution2:
     def isUgly(self, num):
         if num == 0:
             return False
