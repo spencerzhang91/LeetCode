@@ -30,7 +30,7 @@ class Solution(object):
         return head
             
             
-            
+# solve the 'TLE' case of LeetCode OJ            
 class Solution:
     # @param head, a ListNode
     # @return a ListNode
@@ -54,5 +54,39 @@ class Solution:
                 cursor = cursor.next
 
         return dummy_head.next
+
+# orignal approach activate TLE case
+class Solution:
+    def insertionSortList1(self, head):
+        pre = curr = dummy = ListNode(0)
+        dummy.next = head
+        while curr.next:
+            pre = dummy
+            while pre.next.val < curr.next.val:
+                pre = pre.next
+            if pre != curr:
+                node = curr.next
+                curr.next = node.next
+                node.next = pre.next
+                pre.next = node
+            else:
+                curr = curr.next
+        return dummy.next
         
-    
+    def insertionSortList2(self, head):
+        pre = curr = dummy = ListNode(0)
+        dummy.next = head
+        while curr.next:
+            pre = dummy
+            while pre != curr:
+                TraversalLinkedList(dummy)
+                print()
+                if pre.next.val < curr.next.val:
+                    pre = pre.next
+                else:
+                    node = curr.next
+                    curr.next = node.next
+                    node.next = pre.next
+                    pre.next = node
+            curr = curr.next
+        return dummy.next
