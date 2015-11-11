@@ -5,16 +5,23 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def preorderTraversal(self, root):
-        res = []
-        self.recursive(root, res)
-        return res
-
-    def recursive(self, root, res):
-        if root:
-            self.recursive(root.left, res)
-            self.recursive(root.right, res)
-            res.append(root.val)
+    def postorderTraversal(self, root):
+        if not root: return []
+        L = []
+        stack = []
+        lastvisited = None
+        while root or stack:
+            if root:
+                stack.append(root)
+                root = root.left
+            else:
+                peek = stack[-1]
+                if peek.right and lastvisited != peek.right:
+                    root = peek.right
+                else:
+                    L.append(peek.val)
+                    lastvisited = stack.pop()
+        return L
 
 if __name__ == "__main__":
     root = TreeNode('a')
@@ -24,4 +31,4 @@ if __name__ == "__main__":
     root.left.right = TreeNode('d')
 
     test = Solution()
-    print(test.preorderTraversal(root))
+    print(test.postorderTraversal(root))
