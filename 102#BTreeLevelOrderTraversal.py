@@ -38,9 +38,9 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if not root: return []
-        currlevel = [root]
-        currvals, nextvals = [root.val], []
-        nextlevel, result = [], []
+        currlevel, nextlevel = [root], []      # for tracking the tree nodes
+        currvals, nextvals = [root.val], []    # for recording tree node values
+        result = []                            # final result
         while currlevel:
             for item in currlevel:
                 if item.left:
