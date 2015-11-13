@@ -37,18 +37,23 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
-        if not root: return [[]]
+        if not root: return []
         currlevel = [root]
+        currvals, nextvals = [root.val], []
         nextlevel, result = [], []
         while currlevel:
             for item in currlevel:
                 if item.left:
                     nextlevel.append(item.left)
+                    nextvals.append(item.left.val)
                 if item.right:
                     nextlevel.append(item.right)
-            result.append(currlevel)
+                    nextvals.append(item.right.val)
+            result.append(currvals)
             currlevel = nextlevel
+            currvals = nextvals
             nextlevel = []
+            nextvals = []
         return result
 
 
