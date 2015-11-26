@@ -1,14 +1,11 @@
 /* 110#BalancedBinaryTree */
 /* Definition for a binary tree node. */
-
+#define MAX(x, y) (((x)>(y))? (x): (y))
 struct TreeNode {
     int val;
     struct TreeNode *left;
     struct TreeNode *right;
 };
-
-
-#define MAX(x, y) (((x)>(y))? (x): (y))
 
 bool isBalanced(struct TreeNode *root)
 {
