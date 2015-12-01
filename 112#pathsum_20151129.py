@@ -9,38 +9,14 @@ class TreeNode:
 class Solution:
     def hasPathSum(self, root, sum):
         """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: bool
+        recursive approach
         """
-        node = root
-        stack = []
-        spurnode, currpath = [], []
-        res = []
-        while node or stack:
-            while node:
-                if not isLeaf(node):
-                    stack.append(node)
-                    currpath.append(node)
-                    node = node.left
-                else:
-                    res.append(currpath)
-                    currpath = []
-                    node = root
-            if stack:
-                node = stack.pop()
-                node = node.right
-        return currpath
-
-    def isLeaf(self, node):
-        return not (node.left or node.right)
-
-
-def traversal(root):
-    if root:
-        print(root.val, end=' ')
-        traversal(root.left)
-        traversal(root.right)
+        if not root:
+            return False
+        if not (root.left or root.right):
+            if root.val == sum:
+                return True
+        return self.hasPathSum(root.left, sum-root.val) or self.hasPathSum(root.right, sum-root.val)
 
 
 if __name__ == "__main__":
@@ -51,6 +27,3 @@ if __name__ == "__main__":
     tree.left.right = TreeNode(20)
 
     traversal(tree)
-    print()
-    test = Solution()
-    res = test.hasPathSum(tree, 33)
