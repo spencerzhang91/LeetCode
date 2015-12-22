@@ -10,8 +10,8 @@ class Solution(object):
         left = right = None
         stack = []
         for token in tokens:
-            if isdigit(token):
-                stack.append(token)
+            if token not in ['+', '-', '*', '/']:
+                stack.append(int(token))
             else:
                 right = stack.pop()
                 left = stack.pop()
@@ -29,5 +29,8 @@ class Solution(object):
                 stack.append(temp)
         return stack[0]
 
-
-
+if __name__ == '__main__':
+    exp = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+    test = Solution()
+    res = test.evalRPN(exp)
+    print(res)
