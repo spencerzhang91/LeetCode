@@ -18,6 +18,8 @@ class Solution(object):
         for c in zcols:
             for t in range(row):
                 matrix[t][c] = 0
+
+                
 if __name__ == "__main__":
     m = [[1,2,3],
          [0,3,4],
