@@ -13,7 +13,7 @@ for i in range(testCaseNum):
 		wordOfParagragh[i] = int(wordList[i])
 
 	totalWords = sum(wordOfParagragh)
-	font = int((totalWords / (screenWidth * screenHeight)) ** 0.5)
+	font = int((pageNum * screenWidth * screenHeight) ** 0.5)
 	print font
 
 
