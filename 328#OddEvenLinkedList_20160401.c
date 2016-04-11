@@ -24,7 +24,25 @@ int main(void)
 
 struct ListNode *oddEvenList(struct ListNode *head)
 {
-    
+    struct ListNode *oddPtr = head;
+    struct ListNode *eveHead, *evePtr *curr= (head)? head->next: NULL;
+    int counter = 2; // curr starts as an even node (second node if any)
+    while (curr)
+    {
+        counter++;
+        if (counter % 2 == 0)
+        {
+            oddPtr->next = curr->next;
+            oddPtr = oddPtr->next? oddPtr->next: oddPtr;
+        }
+        else
+        {
+            evePtr->next = curr->next;
+        }
+        curr = curr->next;
+    }
+    oddPtr->next = eveHead->next;
+    return head;
 }
 
 void displayList(struct ListNode *head)
