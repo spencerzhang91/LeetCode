@@ -16,7 +16,7 @@ int main(void)
 {
     /* This main function is for testing. */
     struct ListNode *list;
-    list = createList(10);
+    list = createList(0);
     displayList(list);
     struct ListNode *altered;
     altered = oddEvenList(list);
@@ -27,6 +27,7 @@ int main(void)
 
 struct ListNode *oddEvenList(struct ListNode *head)
 {
+    if (!head) return NULL;
     struct ListNode *oddPtr = head;
     struct ListNode *eveHead, *evePtr, *curr;
     eveHead = evePtr = curr = (head)? head->next: NULL;
@@ -52,6 +53,8 @@ struct ListNode *oddEvenList(struct ListNode *head)
 
 void displayList(struct ListNode *head)
 {
+    if (!head)
+    	printf("Empty list.");
     while (head)
     {
         printf("%d ", head->val);
@@ -63,6 +66,7 @@ void displayList(struct ListNode *head)
 struct ListNode *createList(int node_num)
 {
     /* This function creates linked list with given nodes and acsending val */
+    if (!node_num) return NULL;
     struct ListNode *head = (struct ListNode *)malloc(sizeof(struct ListNode));
     head->val = 1; head->next = NULL;
     struct ListNode *curr = head;
