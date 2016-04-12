@@ -27,7 +27,6 @@ int main(void)
 
 struct ListNode *oddEvenList(struct ListNode *head)
 {
-    if (!head) return NULL;
     struct ListNode *oddPtr = head;
     struct ListNode *eveHead, *evePtr, *curr;
     eveHead = evePtr = curr = (head)? head->next: NULL;
@@ -47,7 +46,8 @@ struct ListNode *oddEvenList(struct ListNode *head)
         }
         curr = curr->next;
     }
-    oddPtr->next = eveHead;
+    if (oddPtr)
+        oddPtr->next = eveHead;
     return head;
 }
 
