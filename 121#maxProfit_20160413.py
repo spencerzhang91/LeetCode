@@ -12,7 +12,6 @@ class Solution:
         for i in range(1, len(prices)):
             currentMinPrice = min(currentMinPrice, prices[i])
             profit = max(profit, prices[i] - currentMinPrice)
-            print("currentmin:", currentMinPrice, "profit:", profit)
         return profit
 
 if __name__ == "__main__":
