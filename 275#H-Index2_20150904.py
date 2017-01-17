@@ -14,3 +14,6 @@ class Solution(object):
             else:
                 right = mid - 1
         return N - left
+
+
+
