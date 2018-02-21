@@ -26,4 +26,3 @@ class Solution:
         elif l2.next is None:
             cur.next = l1.next
         return head
-            
