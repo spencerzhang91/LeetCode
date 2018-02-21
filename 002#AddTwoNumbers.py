@@ -1,6 +1,8 @@
 # 2 Add two numbers
 
 # Definition for singly-linked list.
+from . import pyalgolib
+
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -25,4 +27,17 @@ class Solution:
             cur.next = l2.next
         elif l2.next is None:
             cur.next = l1.next
+        cur = head
+        while cur:
+            if cur.val >= 10:
+                cur.val -= 10
+                if cur.next:
+                    cur.next.val += 1
+                else:
+                    cur.next = ListNode(1)
+            cur = cur.next
         return head
+    
+if __name__ == "__main__":
+    print("Test:")
+    
