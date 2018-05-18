@@ -17,5 +17,4 @@ class Solution:
             if count >= 3:
                 res.append([i, j-1])
             i = j
-            count = 0
         return res
