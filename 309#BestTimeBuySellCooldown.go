@@ -11,8 +11,8 @@ func maxProfit(prices []int) int {
     s0 := make([]int, ds) // not holding, can buy
     s1 := make([]int, ds) // holding, can sell, can rest
     s2 := make([]int, ds) // not holding, must rest
-    s1[0] = -prices[0]
     s0[0] = 0
+    s1[0] = -prices[0]
     s2[0] = math.MinInt16
     for i := 1; i < ds; i++ {
         s0[i] = max(s0[i - 1], s2[i - 1])
