@@ -24,3 +24,10 @@ func minCostClimbingStairs2(cost []int) int {
 	}
 	return min(minCost[s-1], minCost[s-2])
 }
+
+func min(a int, b int) int {
+	if a > b {
+		return b
+	}
+	return a
+}

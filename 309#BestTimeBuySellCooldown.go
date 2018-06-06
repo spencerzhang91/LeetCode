@@ -22,3 +22,10 @@ func maxProfit(prices []int) int {
 	}
 	return max(s0[ds-1], s2[ds-1])
 }
+
+func max(a int, b int) int {
+	if a < b {
+		return b
+	}
+	return a
+}
