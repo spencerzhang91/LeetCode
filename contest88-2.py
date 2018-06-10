@@ -29,3 +29,19 @@ class Solution:
                     lmx = max(lmx, dis // 2 + 1)
                 dis = 0
         return max(lc, rc, lmx)
+
+class SmartSolution:
+    def maxDistToClosest(self, seats):
+        """
+        :type seats: List[int]
+        :rtype: int
+        """ 
+        n = len(seats)
+        a = [i for i in range(n) if seats[i] == 1]
+
+        ans = max(a[0], n - a[-1] - 1)
+        for i in range(len(a) - 1):
+            p = a[i]
+            q = a[i + 1]
+            ans = max(ans, (q - p) // 2)
+        return ans
